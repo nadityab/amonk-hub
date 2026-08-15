@@ -9,6 +9,7 @@ import { MessageSquare, CheckCircle2, XCircle, Trash2, RefreshCw } from 'lucide-
 interface ProductCardProps {
   product: Product;
   isAdmin?: boolean;
+  priority?: boolean;
   onToggleAvailability?: (id: string, currentStatus: boolean) => Promise<void>;
   onDeleteProduct?: (id: string, name: string) => Promise<void>;
 }
@@ -16,6 +17,7 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   isAdmin = false,
+  priority = false,
   onToggleAvailability,
   onDeleteProduct,
 }) => {
@@ -56,6 +58,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             onError={() => setImgError(true)}
             unoptimized
+            priority={priority}
           />
           
           {/* Badge Stok Realtime */}

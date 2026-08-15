@@ -104,11 +104,12 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
       {/* Grid Container */}
       {filteredProducts.length > 0 ? (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}
               isAdmin={isAdmin}
+              priority={index === 0}
               onToggleAvailability={onToggleAvailability}
               onDeleteProduct={onDeleteProduct}
             />
